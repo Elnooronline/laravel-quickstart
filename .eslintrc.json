@@ -1,0 +1,34 @@
+{
+    "extends": "airbnb-base",
+    "plugins": [ "html" ],
+    "settings": {
+        "html/html-extensions": [".vue", ".php"]
+    },
+    "rules": {
+        "global-require": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-console": "off",
+        "no-empty": "off",
+        "no-new": "off",
+        "no-cond-assign": "off",
+        "no-unused-vars": "warn"
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "shared-node-browser": true,
+        "worker": true,
+        "jquery": true,
+        "serviceworker": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "globals": {
+        "Vue": true
+    }
+}

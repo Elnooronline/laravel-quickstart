@@ -1,0 +1,29 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "js-cs:issues": "node_modules/.bin/eslint --ext .js,.html,.php,.vue resources/assets/js resources/views --ignore-pattern 'resources/*/vendor/*'",
+        "js-cs:issues-hard": "node_modules/.bin/eslint --ext .js,.html,.php,.vue --no-inline-config resources/assets/js resources/views --ignore-pattern 'resources/*/vendor/*'",
+        "js-cs:fix": "node_modules/.bin/eslint --fix --ext .js,.html,.php,.vue resources/assets/js resources/views --ignore-pattern 'resources/*/vendor/*'"
+    },
+    "devDependencies": {
+        "axios": "^0.18",
+        "bootstrap": "^4.0.0",
+        "popper.js": "^1.12",
+        "cross-env": "^5.1",
+        "jquery": "^3.2",
+        "laravel-mix": "^2.0",
+        "lodash": "^4.17.4",
+        "vue": "^2.5.7",
+        "eslint": "^3.19.0",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-html": "^4.0.3",
+        "eslint-plugin-import": "^2.11.0"
+    }
+}
