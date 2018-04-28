@@ -1,14 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Dashboard\Auth;
 
-use App\Models\Admin;
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use App\Notifications\RegisteredNotification;
-use Faker\Factory;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -32,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -70,19 +65,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
         ]);
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\User $user
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
-     */
-    public function registered(Request $request, $user)
-    {
-        $fake = Factory::create();
-        $user->addOrUpdateMediaFromUrl($fake->imageUrl());
-        Admin::findOrFail(1)->notify(new RegisteredNotification($user->getKey()));
     }
 }

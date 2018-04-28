@@ -17,6 +17,7 @@
         "laracasts/presenter": "^0.2.1",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
+        "laravel/passport": "^5.0",
         "league/flysystem-aws-s3-v3": "~1.0",
         "spatie/laravel-medialibrary": "^7.0.0"
     },

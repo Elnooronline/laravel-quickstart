@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use App\Models\ServiceRequest;
+use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Hashing\Hasher;
+use App\Auth\Providers\EloquentMultipleUserProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Passport::routes();
+
+        Auth::provider('eloquent.multiple', function ($app, array $config) {
+            return new EloquentMultipleUserProvider($app->make(Hasher::class), $config['model'], $config['mapping']);
+        });
     }
 }

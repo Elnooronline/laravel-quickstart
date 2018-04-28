@@ -51,7 +51,22 @@ return [
             'collation' => env('DB_COLLECTION', 'utf8mb4_unicode_ci'),
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB',
+        ],
+
+        'testing' => [
+            'driver' => env('TESTING_DB_CONNECTION', 'sqlite'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('TESTING_DB_DATABASE', ':memory:'),
+            'username' => env('TESTING_DB_USERNAME', 'root'),
+            'password' => env('TESTING_DB_PASSWORD'),
+            'unix_socket' => env('TESTING_DB_SOCKET', ''),
+            'charset' => env('TESTING_DB_CHARSET', 'utf8mb4'),
+            'collation' => env('TESTING_DB_COLLECTION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'strict' => true,
+            'engine' => 'InnoDB',
         ],
 
         'pgsql' => [

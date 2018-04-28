@@ -66,8 +66,12 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
+            'driver' => 'eloquent.multiple',
             'model' => App\Models\User::class,
+            'mapping' => [
+                App\Models\User::ADMIN_TYPE => App\Models\Admin::class,
+                App\Models\User::USER_TYPE => App\Models\User::class,
+            ],
         ],
 
         // 'users' => [

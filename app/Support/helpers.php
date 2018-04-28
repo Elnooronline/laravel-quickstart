@@ -70,3 +70,173 @@ if (! function_exists('notification_target')) {
         return $data->where($keyName, $key)->first();
     }
 }
+
+if (! function_exists('localedData')) {
+    /**
+     * Create a different labels to insert according to number of language supported in the system.
+     *
+     * @param  array $attributes
+     * @return mixed
+     */
+    function localedData($attributes = [])
+    {
+        $localedData = [];
+
+        $locales = Language::all();
+
+        foreach ($attributes as $key => $value) {
+            foreach ($locales as $language) {
+                $localedData["$key:{$language->getCode()}"] = $value;
+            }
+        }
+
+        return $localedData;
+    }
+}
+if (! function_exists('localed_attributes')) {
+    /**
+     * Add Languages to the given data.
+     *
+     * @param array $localedAttributes
+     * @param array $attributes
+     * @return array
+     */
+    function localed_attributes($localedAttributes = [], $attributes = [])
+    {
+        /**
+         * The supported lanuages.
+         *
+         * @var  array
+         */
+        $languages = \App\Locales\Language::all();
+
+        // create an empty array
+        $data = [];
+
+        // fetch the given attributes
+        foreach ($localedAttributes as $key => $value) {
+
+            /*
+             * add language code with the key.
+             *
+             * @see https://github.com/dimsav/laravel-translatable#available-methods
+             */
+            foreach ($languages as $language) {
+                $data[$key.':'.$language->getCode()] = $value.' - '.$language->getCode();
+            }
+        }
+
+        return array_merge($data, $attributes);
+    }
+}
+if (! function_exists('create')) {
+    /**
+     * Create a collection of models and persist them to the database.
+     *
+     * @param  array $attributes
+     * @return mixed
+     */
+    function create($class, $attributes = [], $times = null)
+    {
+        return factory($class, $times)->create($attributes);
+    }
+}
+
+if (! function_exists('validate_base64')) {
+
+    /**
+     * Validate a base64 content.
+     *
+     * @param string $base64data
+     * @param array $allowedMime example ['png', 'jpg', 'jpeg']
+     * @return bool
+     */
+    function validate_base64($base64data, array $allowedMime)
+    {
+        // strip out data uri scheme information (see RFC 2397)
+        if (strpos($base64data, ';base64') !== false) {
+            list(, $base64data) = explode(';', $base64data);
+            list(, $base64data) = explode(',', $base64data);
+        }
+
+        // strict mode filters for non-base64 alphabet characters
+        if (base64_decode($base64data, true) === false) {
+            return false;
+        }
+
+        // decoding and then reeconding should not change the data
+        if (base64_encode(base64_decode($base64data)) !== $base64data) {
+            return false;
+        }
+
+        $binaryData = base64_decode($base64data);
+
+        // temporarily store the decoded data on the filesystem to be able to pass it to the fileAdder
+        $tmpFile = tempnam(sys_get_temp_dir(), 'medialibrary');
+        file_put_contents($tmpFile, $binaryData);
+
+        // guard Against Invalid MimeType
+        $allowedMime = array_flatten($allowedMime);
+
+        // no allowedMimeTypes, then any type would be ok
+        if (empty($allowedMime)) {
+            return true;
+        }
+
+        // Check the MimeTypes
+        $validation = Illuminate\Support\Facades\Validator::make(['file' => new Illuminate\Http\File($tmpFile)],
+            ['file' => 'mimes:'.implode(',', $allowedMime)]);
+
+        return ! $validation->fails();
+    }
+}
+
+if (! function_exists('present')) {
+    /**
+     * Get the present instance for the given resource.
+     *
+     * @param $resource
+     * @return \App\Support\Present
+     */
+    function present($resource)
+    {
+        return new \App\Support\Present($resource);
+    }
+}
+if (! function_exists('random_or_create')) {
+    /**
+     * Get random instance for the given model class or create new.
+     *
+     * @param string $model
+     * @param int $count
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Collection
+     */
+    function random_or_create($model, $count = 1)
+    {
+        $instance = new $model;
+
+        if (! $instance->count()) {
+            return factory($model, $count)->create();
+        }
+
+        return $instance->get()->random();
+    }
+}
+
+if (! function_exists('flash')) {
+    /**
+     * Set success flash message.
+     *
+     * @param string $message
+     * @param string $level
+     * @return void
+     */
+    function flash($message, $level = 'success')
+    {
+        $messages = session($level, []);
+
+        $messages[] = $message;
+
+        session()->flash($level, $messages);
+    }
+}
