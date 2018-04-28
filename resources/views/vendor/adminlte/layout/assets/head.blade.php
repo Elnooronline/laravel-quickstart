@@ -12,6 +12,7 @@
 @else
     <link rel="stylesheet" href="{{ url('vendor/adminlte/css/admin-lte.rtl.css') }}">
 @endif
+<link rel="stylesheet" href="{{ url(mix('/css/dashboard.css')) }}">
 
 @stack('assets.head')
 
