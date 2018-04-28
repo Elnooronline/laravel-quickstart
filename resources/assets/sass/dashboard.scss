@@ -1,0 +1,33 @@
+@font-face {
+  font-family: Cairo-Black;
+  src: url(../fonts/Cairo-Black.ttf);
+}
+
+@font-face {
+  font-family: Cairo-Bold;
+  src: url(../fonts/Cairo-Bold.ttf);
+}
+
+@font-face {
+  font-family: Cairo-ExtraLight;
+  src: url(../fonts/Cairo-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: Cairo-Light;
+  src: url(../fonts/Cairo-Light.ttf);
+}
+
+@font-face {
+  font-family: Cairo-Regular;
+  src: url(../fonts/Cairo-Regular.ttf);
+}
+
+@font-face {
+  font-family: Cairo-SemiBold;
+  src: url(../fonts/Cairo-SemiBold.ttf);
+}
+
+:not(i) {
+  font-family: Cairo-Regular;
+}
