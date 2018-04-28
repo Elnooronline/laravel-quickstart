@@ -2,6 +2,7 @@
 
 namespace App\Models\Concerns;
 
+use App\Models\User;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait as HasMedia;
 
 trait HasMediaTrait
@@ -166,6 +167,10 @@ trait HasMediaTrait
         $url = $this->getFirstMediaUrl($collectionName, $conversionName) ?: $this->getFirstMediaUrl($collectionName);
 
         if (empty($url)) {
+            if ($this instanceof User) {
+                return url('images/user.png');
+            }
+
             return 'http://via.placeholder.com/150x150';
         }
 
