@@ -20,7 +20,6 @@ return [
     'attributes' => [
         'name' => 'اسم المدير',
         'email' => 'البريد الالكتروني',
-        'mobile' => 'الهاتف',
         'password' => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',
     ],
