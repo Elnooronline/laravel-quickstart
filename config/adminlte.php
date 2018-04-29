@@ -25,7 +25,7 @@ return [
          *  green, green-light, purple, purple-light,
          *  red, red-light, yellow and yello-light.
          */
-        'skin' => 'black',
+        'skin' => 'blue',
 
         /*
          * The direction of the dashboard.
