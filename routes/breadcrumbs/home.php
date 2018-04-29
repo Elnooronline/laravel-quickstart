@@ -2,5 +2,5 @@
 
 // Home
 Breadcrumbs::register('dashboard.home', function ($breadcrumbs) {
-    $breadcrumbs->push(trans('home.dashboard.home'), route('dashboard.home'), ['icon' => 'fa fa-dashboard']);
+    $breadcrumbs->push(trans('dashboard.home'), route('dashboard.home'), ['icon' => 'fa fa-dashboard']);
 });

@@ -8,15 +8,12 @@ use App\Models\Concerns\Resourcable;
 use App\Models\Concerns\HasMediaTrait;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
-use App\Models\Concerns\HasMediaConversions;
 use App\Models\Presenters\Urls\UserUrlGenerator;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, Resourcable, Presentable, HasMediaTrait, HasMediaConversions, UserHelpers {
-        HasMediaConversions::registerMediaConversions insteadof HasMediaTrait;
-    }
+    use Notifiable, Resourcable, Presentable, HasMediaTrait, UserHelpers ;
 
     /**
      * The code of normal user type.

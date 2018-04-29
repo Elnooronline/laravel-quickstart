@@ -2,13 +2,13 @@
 
 namespace App\Models\Abstracts;
 
+use App\Models\Concerns\Presentable;
 use App\Models\Concerns\Resourcable;
-use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 abstract class Model extends Eloquent
 {
-    use Resourcable, PresentableTrait;
+    use Resourcable, Presentable;
 
     /**
      * The presenter class name.

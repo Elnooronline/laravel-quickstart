@@ -14,5 +14,6 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('admins', 'AdminController');
+Route::resource('posts', 'AdminController');
 
 Route::resource('users', 'UserController');
