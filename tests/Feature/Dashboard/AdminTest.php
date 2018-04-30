@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Dashboard;
 
+use Elnooronline\LaravelBootstrapForms\Facades\BsForm;
 use Illuminate\Http\Response;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -100,5 +101,55 @@ class AdminTest extends TestCase
         $response->assertStatus(Response::HTTP_FOUND);
 
         $this->assertDatabaseHas('users', ['type' => Admin::ADMIN_TYPE, 'name' => $data['name']]);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_display_the_edit_form_of_admins()
+    {
+        $this->be($admin = create(Admin::class));
+
+        $response = $this->get(route('dashboard.admins.edit', $admin));
+
+        $response->assertSuccessful();
+
+        $response->assertSee(BsForm::text('name')->value($admin->name)->toHtml());
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_update_the_admin()
+    {
+        $this->be($admin = create(Admin::class));
+        $data = [
+            'name' => 'Ahmed Fathy',
+            'email' => 'test@gmail.com',
+            'password' => 'secret',
+            'password_confirmation' => 'secret',
+        ];
+
+        $response = $this->put(route('dashboard.admins.update', $admin), $data);
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertDatabaseHas('users', ['type' => Admin::ADMIN_TYPE, 'name' => $data['name']]);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_delete_the_admin()
+    {
+        $this->be(create(Admin::class));
+
+        $admin = create(Admin::class);
+
+        $response = $this->delete(route('dashboard.admins.destroy', $admin));
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertDatabaseMissing('users', ['id' => $admin->id]);
     }
 }
