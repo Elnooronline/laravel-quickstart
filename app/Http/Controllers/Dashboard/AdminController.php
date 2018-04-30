@@ -42,7 +42,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Add new admin.
+     * Store a newly created resource in storage.
      *
      * @param \App\Http\Requests\AdminRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
