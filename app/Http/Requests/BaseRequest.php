@@ -92,7 +92,11 @@ class BaseRequest extends FormRequest
      */
     public function attributes()
     {
-        return array_dot(trans($this->getResourceName().'.attributes')) ?? [];
+        if (is_array($attributes = trans($this->getResourceName().'.attributes'))) {
+            return array_dot($attributes);
+        }
+
+        return [];
     }
 
     /**
