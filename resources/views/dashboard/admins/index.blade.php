@@ -9,6 +9,7 @@
             @endslot
             <tr>
                 <th>#</th>
+                <th style="width: 90px;">{{ trans('admins.attributes.avatar') }}</th>
                 <th>{{ trans('admins.attributes.name') }}</th>
                 <th>{{ trans('admins.attributes.email') }}</th>
                 <th>...</th>
@@ -16,6 +17,9 @@
             @foreach ($admins as $admin)
                 <tr>
                     <td>{{ $admin->id }}</td>
+                    <td>
+                        {{ $admin->present()->thumbAvatar }}
+                    </td>
                     <td>{{ $admin->name }}</td>
                     <td>{{ $admin->email }}</td>
                     <td>
