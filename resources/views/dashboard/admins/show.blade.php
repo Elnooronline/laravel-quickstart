@@ -12,16 +12,11 @@
                 <th>{{ trans('admins.attributes.email') }}</th>
                 <td>{{ $admin->email }}</td>
             </tr>
-            <tr>
-                <th>{{ trans('admins.attributes.mobile') }}</th>
-                <td>{{ $admin->mobile }}</td>
-            </tr>
 
             @slot('footer')
                     {{ $admin->present()->editButton }}
 
                     {{ $admin->present()->deleteButton }}
-
             @endslot
 
         @endcomponent

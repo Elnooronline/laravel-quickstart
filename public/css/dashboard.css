@@ -32,3 +32,10 @@
   font-family: Cairo-Regular;
 }
 
+.swal2-icon.swal2-info,
+.swal2-icon.swal2-warning {
+  font-size: 10px !important;
+  line-height: 50px !important;
+  text-align: center;
+}
+

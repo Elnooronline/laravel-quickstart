@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-
     /**
      * Display list of all admins.
      *
@@ -50,7 +49,9 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        Admin::create($request->data());
+        $admin = Admin::create($request->data());
+
+        $admin->addOrUpdateMediaFromRequest('avatar');
 
         $this->flash('created');
 
@@ -78,6 +79,8 @@ class AdminController extends Controller
     public function update(AdminRequest $request, Admin $admin)
     {
         $admin->update($request->data());
+
+        $admin->addOrUpdateMediaFromRequest('avatar');
 
         $this->flash('updated');
 

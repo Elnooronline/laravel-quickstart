@@ -4,7 +4,7 @@
     @component('adminlte::page', ['title' => trans('admins.actions.create'), 'breadcrumb' => 'dashboard.admins.create'])
         @component('adminlte::box')
             @php(BsForm::resource('admins'))
-            {{ BsForm::post(route('dashboard.admins.store')) }}
+            {{ BsForm::post(route('dashboard.admins.store'), ['files' => true]) }}
 
             @include('dashboard.admins.partials.form')
 
