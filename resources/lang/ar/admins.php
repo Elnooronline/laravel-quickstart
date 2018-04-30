@@ -22,7 +22,7 @@ return [
         'email' => 'البريد الالكتروني',
         'password' => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',
-        'avatar' => 'صورة الملف الشخصي',
+        'avatar' => 'الصورة',
     ],
     'dialogs' => [
         'delete' => [
