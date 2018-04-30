@@ -17101,6 +17101,9 @@ var app = new Vue({
   el: '#app'
 });
 
+// Open sidebar dropdwon when active.
+$('.treeview-menu').find('li.active').closest('.treeview-menu').css('display', 'block');
+
 /***/ }),
 
 /***/ "./resources/assets/js/helpers/delete-confirm.js":

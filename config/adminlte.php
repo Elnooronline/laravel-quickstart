@@ -5,18 +5,18 @@ return [
     /*
      * The logo of the dashboard.
      */
-    'logo' => '<b>Elnooronline</b>',
+    'logo' => '<b>Laravel</b> quick start',
 
 
     /*
      * The small logo of the dashboard.
      */
-    'small_logo' => 'Elnooronline',
+    'small_logo' => '<b>Laravel</b> quick start',
 
     /*
      * The name of the dashboard.
      */
-    'name' => 'Elnooronline',
+    'name' => env('APP_NAME', 'Laravel'),
 
     'appearence' => [
 
