@@ -13,6 +13,10 @@
 */
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('settings', 'SettingController@index')->name('settings.index');
+Route::put('settings', 'SettingController@update')->name('settings.update');
+
 Route::resource('admins', 'AdminController');
+
 
 Route::resource('users', 'UserController');

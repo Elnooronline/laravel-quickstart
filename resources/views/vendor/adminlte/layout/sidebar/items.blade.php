@@ -31,4 +31,12 @@
         </ul>
     </li>
 
+    {{--Settings--}}
+    <li class="{{ css_route_active('dashboard.settings.index') }}">
+        <a href="{{ route('dashboard.settings.index') }}">
+            <i class="fa fa-cogs"></i>
+            <span>@lang('settings.plural')</span>
+        </a>
+    </li>
+
 </ul>
