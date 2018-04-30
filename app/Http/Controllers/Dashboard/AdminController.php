@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Requests\AdminRequest;
+use App\Http\Requests\Dashboard\AdminRequest;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
 
@@ -44,7 +44,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\AdminRequest $request
+     * @param \App\Http\Requests\Dashboard\AdminRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function store(AdminRequest $request)
@@ -72,7 +72,7 @@ class AdminController extends Controller
     /**
      * Update admin.
      *
-     * @param \App\Http\Requests\AdminRequest $request
+     * @param \App\Http\Requests\Dashboard\AdminRequest $request
      * @param \App\Models\Admin $admin
      * @return \Illuminate\Http\RedirectResponse
      */
