@@ -67,7 +67,6 @@ class AdminTest extends TestCase
         $response->assertSessionHasErrors(['avatar']); // Avatar is not valid image
         $response->assertStatus(Response::HTTP_FOUND);
 
-
         $response = $this->put(route('dashboard.admins.update', $admin), ['name' => str_random(256), 'email' => '']);
         $response->assertSessionHasErrors(['name', 'email']);
         $response->assertStatus(Response::HTTP_FOUND);
