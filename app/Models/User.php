@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, Resourcable, Presentable, HasMediaTrait, UserHelpers ;
+    use Notifiable, Resourcable, Presentable, HasMediaTrait, UserHelpers;
 
     /**
      * The code of normal user type.
@@ -45,13 +45,6 @@ class User extends Authenticatable implements HasMedia
         'password',
         'remember_token',
     ];
-
-    /**
-     * The url presenter class name.
-     *
-     * @var string
-     */
-    public $urlPresenter = UserUrlGenerator::class;
 
     /**
      * The resource name of the model.
