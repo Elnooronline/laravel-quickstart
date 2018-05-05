@@ -95,13 +95,13 @@ return [
             'native' => 'العربية',
             'name' => 'Arabic',
             'dir' => 'rtl',
-            'flag' => env('APP_URL').'/images/flags/133-saudi-arabia.png',
+            'flag' => env('APP_URL').'/images/flags/sa.png',
         ],
         'en' => [
             'native' => 'English',
             'name' => 'English',
             'dir' => 'ltr',
-            'flag' => env('APP_URL').'/images/flags/united-kingdom.png',
+            'flag' => env('APP_URL').'/images/flags/us.png',
         ],
     ],
 
