@@ -1,5 +1,7 @@
 <?php
 
+use App\Locales\Language;
+
 if (! function_exists('filter_html')) {
     /**
      * Remove dangerous tags (with attributes) from html.
@@ -71,14 +73,15 @@ if (! function_exists('notification_target')) {
     }
 }
 
-if (! function_exists('localedData')) {
+if (! function_exists('localed_data')) {
     /**
      * Create a different labels to insert according to number of language supported in the system.
      *
      * @param  array $attributes
+     * @param array $additional
      * @return mixed
      */
-    function localedData($attributes = [])
+    function localed_data($attributes = [], $additional = [])
     {
         $localedData = [];
 
@@ -90,7 +93,7 @@ if (! function_exists('localedData')) {
             }
         }
 
-        return $localedData;
+        return $localedData + $additional;
     }
 }
 if (! function_exists('localed_attributes')) {
@@ -108,7 +111,7 @@ if (! function_exists('localed_attributes')) {
          *
          * @var  array
          */
-        $languages = \App\Locales\Language::all();
+        $languages = Language::all();
 
         // create an empty array
         $data = [];
@@ -208,10 +211,10 @@ if (! function_exists('random_or_create')) {
      * Get random instance for the given model class or create new.
      *
      * @param string $model
-     * @param int $count
+     * @param int|null $count
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Collection
      */
-    function random_or_create($model, $count = 1)
+    function random_or_create($model, $count = null)
     {
         $instance = new $model;
 
