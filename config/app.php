@@ -82,6 +82,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Locales Configuration
+    |--------------------------------------------------------------------------
+    |
+    | The application locales determines the locales that will be supported
+    | by the application.
+    |
+    */
+
+    'locales' => [
+        'ar' => [
+            'native' => 'العربية',
+            'name' => 'Arabic',
+            'dir' => 'rtl',
+            'flag' => env('APP_URL').'/images/flags/133-saudi-arabia.png',
+        ],
+        'en' => [
+            'native' => 'English',
+            'name' => 'English',
+            'dir' => 'ltr',
+            'flag' => env('APP_URL').'/images/flags/united-kingdom.png',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
     |
