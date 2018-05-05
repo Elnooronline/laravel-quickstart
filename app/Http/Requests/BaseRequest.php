@@ -166,8 +166,9 @@ class BaseRequest extends FormRequest
      * @param array $attributes
      * @return array
      */
-    public function localedAttributes($resource, $attributes = [])
+    public function localedAttributes($attributes = [])
     {
+        $resource = $this->getResourceName();
         $supportedLanguages = Language::all();
         $translatedAttributes = trans($resource.'.attributes');
         foreach ($attributes as $attribute) {
