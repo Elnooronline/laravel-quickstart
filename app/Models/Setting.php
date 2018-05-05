@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\Resourcable;
 use Spatie\MediaLibrary\Models\Media;
 use App\Models\Concerns\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -9,7 +10,7 @@ use Elnooronline\LaravelSettings\Models\SettingModel;
 
 class Setting extends SettingModel implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait, Resourcable;
 
     /**
      * Register the conversions for the specified model.
