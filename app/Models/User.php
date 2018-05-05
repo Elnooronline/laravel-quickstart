@@ -45,11 +45,4 @@ class User extends Authenticatable implements HasMedia
         'password',
         'remember_token',
     ];
-
-    /**
-     * The resource name of the model.
-     *
-     * @var string
-     */
-    public $resource = 'users';
 }

@@ -30,13 +30,6 @@ class Admin extends User
     ];
 
     /**
-     * The resource name of the model.
-     *
-     * @var string
-     */
-    public $resource = 'admins';
-
-    /**
      * The presenter class name.
      *
      * @var string
