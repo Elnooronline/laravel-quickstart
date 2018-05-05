@@ -7,7 +7,7 @@ use App\Models\Admin;
 class AdminObserver
 {
     /**
-     * Listen to the Shop creating event.
+     * Listen to the admin creating event.
      *
      * @param  \App\Models\Admin  $admin
      * @return void

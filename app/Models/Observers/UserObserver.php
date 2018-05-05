@@ -7,7 +7,7 @@ use App\Models\User;
 class UserObserver
 {
     /**
-     * Listen to the Shop creating event.
+     * Listen to the user creating event.
      *
      * @param  \App\Models\User  $user
      * @return void
