@@ -60,16 +60,16 @@
         },
         methods:{
             paginate: function (url) {
-                axios.get(url).then((responce) => {
-                    this.notifications = responce.data;
+                axios.get(url).then((response) => {
+                    this.notifications = response.data;
                 });
             }
         },
         created() {
             this.trans = JSON.parse(this.translation)
 
-            axios.get(this.route).then((responce) => {
-                this.notifications = responce.data;
+            axios.get(this.route).then((response) => {
+                this.notifications = response.data;
             });
         }
     }

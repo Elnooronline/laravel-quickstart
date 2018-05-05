@@ -45,8 +45,8 @@
         created() {
             this.trans = JSON.parse(this.translation)
 
-            axios.get(this.route).then((responce) => {
-                this.notifications = responce.data;
+            axios.get(this.route).then((response) => {
+                this.notifications = response.data;
             });
         }
     }
