@@ -21,5 +21,5 @@ Breadcrumbs::register('dashboard.admins.show', function ($breadcrumbs, $admin) {
 // Home / Admins / {admin} / Edit
 Breadcrumbs::register('dashboard.admins.edit', function ($breadcrumbs, $admin) {
     $breadcrumbs->parent('dashboard.admins.show', $admin);
-    $breadcrumbs->push(trans('admins.actions.edit'), route('dashboard.admins.show', $admin), ['icon' => 'fa fa-edit']);
+    $breadcrumbs->push(trans('admins.actions.edit'), route('dashboard.admins.edit', $admin), ['icon' => 'fa fa-edit']);
 });

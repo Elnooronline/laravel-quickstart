@@ -21,5 +21,5 @@ Breadcrumbs::register('dashboard.users.show', function ($breadcrumbs, $user) {
 // Home / Users / {user} / Edit
 Breadcrumbs::register('dashboard.users.edit', function ($breadcrumbs, $user) {
     $breadcrumbs->parent('dashboard.users.show', $user);
-    $breadcrumbs->push(trans('users.actions.edit'), route('dashboard.users.show', $user), ['icon' => 'fa fa-edit']);
+    $breadcrumbs->push(trans('users.actions.edit'), route('dashboard.users.edit', $user), ['icon' => 'fa fa-edit']);
 });
