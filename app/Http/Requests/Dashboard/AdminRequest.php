@@ -25,7 +25,7 @@ class AdminRequest extends BaseRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6|confirmed|max:255',
             'avatar' => 'image|nullable',
         ];
@@ -42,7 +42,7 @@ class AdminRequest extends BaseRequest
 
         return [
             'name' => 'sometimes|string|max:255',
-            'email' => 'sometimes|string|email|max:255|unique:users,email,' . $ignoredId,
+            'email' => 'sometimes|required|email|max:255|unique:users,email,' . $ignoredId,
             'password' => 'nullable|min:6|confirmed|max:255',
             'avatar' => 'image|nullable',
         ];
