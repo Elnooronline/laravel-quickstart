@@ -31,7 +31,7 @@ class SettingTest extends TestCase
         $this->be(create(Admin::class));
 
         $response = $this->put(route('dashboard.settings.update', [
-            'name' => 'demo'
+            'name' => 'demo',
         ]));
 
         $response->assertStatus(Response::HTTP_FOUND);

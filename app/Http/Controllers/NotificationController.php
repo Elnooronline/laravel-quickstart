@@ -10,7 +10,6 @@ class NotificationController extends Controller
 {
     public function index(Request $request)
     {
-
         if (request()->wantsJson() || $request->input('type') == 'json') {
             if ($request->input('limit')) {
                 $notifications = auth()->user()->notifications()->latest()->limit($request->input('limit'))->get();

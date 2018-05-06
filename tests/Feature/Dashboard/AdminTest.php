@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Dashboard;
 
-use Elnooronline\LaravelBootstrapForms\Facades\BsForm;
+use Tests\TestCase;
+use App\Models\Admin;
 use Illuminate\Http\Response;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Tests\TestCase;
-use App\Models\Admin;
+use Elnooronline\LaravelBootstrapForms\Facades\BsForm;
 
 class AdminTest extends TestCase
 {

@@ -34,8 +34,11 @@ class Presenter extends LaracastsPresenter
         $resource = $this->entity->getResourceName();
 
         return new HtmlString(
-            view('layouts.dashboard.presenters.list.show', compact('entity', 'resource')
-            )->render());
+            view(
+                'layouts.dashboard.presenters.list.show',
+                compact('entity', 'resource')
+            )->render()
+        );
     }
 
     /**
@@ -50,8 +53,11 @@ class Presenter extends LaracastsPresenter
         $resource = $this->entity->getResourceName();
 
         return new HtmlString(
-            view('layouts.dashboard.presenters.list.edit', compact('entity', 'resource')
-            )->render());
+            view(
+                'layouts.dashboard.presenters.list.edit',
+                compact('entity', 'resource')
+            )->render()
+        );
     }
 
     /**
@@ -81,7 +87,9 @@ class Presenter extends LaracastsPresenter
             'delete' => $this->displayDeleteButton,
         ];
 
-        return new HtmlString(view('layouts.dashboard.presenters.list.control',
-            compact('entity', 'resource', 'present'))->render());
+        return new HtmlString(view(
+            'layouts.dashboard.presenters.list.control',
+            compact('entity', 'resource', 'present')
+        )->render());
     }
 }

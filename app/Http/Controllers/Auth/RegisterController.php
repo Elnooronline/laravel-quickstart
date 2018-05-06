@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Admin;
-use App\Models\User;
-use App\Http\Controllers\Controller;
-use App\Notifications\RegisteredNotification;
 use Faker\Factory;
+use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\RegisteredNotification;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

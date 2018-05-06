@@ -37,6 +37,5 @@ abstract class MediableModel extends Model implements HasMedia
             ->width(320)
             ->height(320)
             ->format('png');
-
     }
 }

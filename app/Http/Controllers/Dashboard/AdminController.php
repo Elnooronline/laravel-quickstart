@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Requests\Dashboard\AdminRequest;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\AdminRequest;
 
 class AdminController extends Controller
 {

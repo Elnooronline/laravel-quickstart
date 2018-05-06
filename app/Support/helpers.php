@@ -187,8 +187,10 @@ if (! function_exists('validate_base64')) {
         }
 
         // Check the MimeTypes
-        $validation = Illuminate\Support\Facades\Validator::make(['file' => new Illuminate\Http\File($tmpFile)],
-            ['file' => 'mimes:'.implode(',', $allowedMime)]);
+        $validation = Illuminate\Support\Facades\Validator::make(
+            ['file' => new Illuminate\Http\File($tmpFile)],
+            ['file' => 'mimes:'.implode(',', $allowedMime)]
+        );
 
         return ! $validation->fails();
     }

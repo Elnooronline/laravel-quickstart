@@ -7,8 +7,8 @@ use Illuminate\Support\HtmlString;
 class AdminPresenter extends Presenter
 {
     /**
-     * @return \Illuminate\Support\HtmlString
      * @throws \Throwable
+     * @return \Illuminate\Support\HtmlString
      */
     public function thumbAvatar()
     {

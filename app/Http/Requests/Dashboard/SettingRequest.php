@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Dashboard;
 
-
 use App\Http\Requests\BaseRequest;
 
 class SettingRequest extends BaseRequest
