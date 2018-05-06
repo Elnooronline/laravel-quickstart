@@ -7,7 +7,7 @@ use App\Models\Admin;
 
 class AdminValidationTest extends TestCase
 {
-    public function test_name_validation_is_store_method()
+    public function test_name_validation_in_store_method()
     {
         $this->be(create(Admin::class));
 
@@ -25,7 +25,7 @@ class AdminValidationTest extends TestCase
         }
     }
 
-    public function test_name_validation_is_update_method()
+    public function test_name_validation_in_update_method()
     {
         $this->be($admin = create(Admin::class));
 
@@ -36,7 +36,7 @@ class AdminValidationTest extends TestCase
         ];
 
         foreach ($cases as $case) {
-            $response = $this->post(route('dashboard.admins.store'), ['name' => $case]);
+            $response = $this->put(route('dashboard.admins.update', $admin), ['name' => $case]);
             $response->assertSessionHasErrors(['name']);
         }
     }
