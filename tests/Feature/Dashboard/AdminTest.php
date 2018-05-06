@@ -5,8 +5,6 @@ namespace Tests\Feature\Dashboard;
 use Tests\TestCase;
 use App\Models\Admin;
 use Illuminate\Http\Response;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 use Elnooronline\LaravelBootstrapForms\Facades\BsForm;
 
 class AdminTest extends TestCase
