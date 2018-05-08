@@ -82,7 +82,7 @@ class Controller extends BaseController
 
         return str_plural(snake_case(str_replace('Controller', '', $classBaseName), '-'));
     }
-
+    
     /**
      * The resource name of the controller.
      *
@@ -90,6 +90,10 @@ class Controller extends BaseController
      */
     protected function getResourceName()
     {
+        if (property_exists($this, 'resourceName')) {
+            return $this->resourceName;
+        }
+
         $classBaseName = class_basename(get_class($this));
 
         return str_plural(snake_case(str_replace('Controller', '', $classBaseName)));
