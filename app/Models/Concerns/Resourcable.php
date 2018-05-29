@@ -17,6 +17,6 @@ trait Resourcable
             return $this->resourceName;
         }
 
-        return Str::plural(Str::lower(class_basename(static::class)));
+        return Str::lower(Str::plural(Str::snake(class_basename(static::class))));
     }
 }
