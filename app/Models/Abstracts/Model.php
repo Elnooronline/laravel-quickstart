@@ -16,17 +16,4 @@ abstract class Model extends Eloquent
      * @var string
      */
     protected $presenter = '';
-
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
-    public function __construct(array $attributes = [])
-    {
-        $this->setResourceName();
-
-        parent::__construct($attributes);
-    }
 }
