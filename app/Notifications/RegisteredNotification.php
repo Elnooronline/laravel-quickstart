@@ -13,9 +13,9 @@ class RegisteredNotification extends Notification
     use Queueable;
 
     /**
-     * The key of the target instance.
+     * The target instance.
      *
-     * @var int|string
+     * @var \App\Models\Abstracts\Model
      */
     public $target;
 
@@ -63,14 +63,15 @@ class RegisteredNotification extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'target_key' => $this->target,
-            'target_type' => User::class,
-            'title' => 'notifications.registered.title', // trans('notifications.registered.title')
-            'body' => 'notifications.registered.body', // trans('notifications.registered.body')
+            'title' => 'notifications.registered.title', // trans('notifications.registered.title', $localed_data = [])
+            'body' => 'notifications.registered.body', // trans('notifications.registered.body', $localed_data = [])
+            'localed_data' => [
+                'user' => $this->target->name
+            ],
             'dashboard_route' => 'dashboard.users.show',
-            'dashboard_route_data' => [$this->target], // route('dashboard.users.show', [$this->target])
+            'dashboard_route_data' => [$this->target->id], // route('dashboard.users.show', [$this->target->id])
             'route' => 'users.show',
-            'route_data' => [$this->target], // route('users.show', [$this->target])
+            'route_data' => [$this->target->id], // route('users.show', [$this->target->id])
         ];
     }
 }

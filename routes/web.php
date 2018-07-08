@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/notify', function () {
+    $fake = \Faker\Factory::create();
+    $user = create(\App\Models\User::class);
+    $user->addOrUpdateMediaFromUrl($fake->imageUrl());
+    auth()->user()->notify(new \App\Notifications\RegisteredNotification($user));
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
