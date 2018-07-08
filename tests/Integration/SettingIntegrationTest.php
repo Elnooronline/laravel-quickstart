@@ -12,8 +12,10 @@ class SettingIntegrationTest extends TestCase
      */
     public function it_can_set_and_get_data()
     {
+        Setting::set('name', 'Ahmed Fathy');
         Setting::set('phone', '021207687151');
 
         $this->assertEquals(Setting::get('phone'), '021207687151');
+        $this->assertEquals(Setting::get('name'), 'Ahmed Fathy');
     }
 }
