@@ -5,8 +5,6 @@ namespace Tests\Integration;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Admin;
-use App\Models\Provider;
-use App\Models\Supervisor;
 
 class CustomUserProviderTest extends TestCase
 {
