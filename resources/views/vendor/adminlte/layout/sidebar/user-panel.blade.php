@@ -1,7 +1,7 @@
 <!-- Sidebar user panel -->
 <div class="user-panel">
     <div class="pull-left image">
-        <img src="{{ auth()->user()->getFirstOrDefaultMediaUrl() }}" class="img-circle" alt="{{ auth()->user()->name }}">
+        <img src="{{ AdminLte::getGravatar(auth()->user()->email) }}" class="img-circle" alt="{{ auth()->user()->name }}">
     </div>
     <div class="pull-left info">
         <p>{{ auth()->user()->name }}</p>

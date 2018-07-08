@@ -1,7 +1,7 @@
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img src="{{ auth()->user()->getFirstOrDefaultMediaUrl() }}" class="user-image" alt="{{ auth()->user()->name }}">
+        <img src="{{ AdminLte::getGravatar(auth()->user()->email) }}" class="user-image" alt="{{ auth()->user()->name }}">
         <span class="hidden-xs">{{ auth()->user()->name }}</span>
     </a>
     <ul class="dropdown-menu">
