@@ -69,7 +69,7 @@ class RegisteredNotification extends Notification
             ],
             'dashboard_route' => 'dashboard.users.show',
             'dashboard_route_data' => [$this->target->id], // route('dashboard.users.show', [$this->target->id])
-            'route' => 'dashboard.users.show',
+            'route' => 'dashboard.users.show', // The notification route name for web
             'route_data' => [$this->target->id], // route('users.show', [$this->target->id])
         ];
     }
