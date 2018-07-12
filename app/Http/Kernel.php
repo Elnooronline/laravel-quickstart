@@ -44,6 +44,7 @@ class Kernel extends HttpKernel
             'bindings',
         ],
         'dashboard' => [
+            \App\Http\Middleware\DashboardAccessMiddleware::class,
             \App\Http\Middleware\DashboardLanguageMiddleware::class,
         ],
     ];
