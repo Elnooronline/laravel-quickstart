@@ -21,10 +21,10 @@ class AdminTest extends TestCase
         $response->assertSuccessful();
 
         $response->assertViewIs('dashboard.admins.index');
-        $response->assertSee($admin->present()->thumbAvatar);
+        $response->assertSeeEscaped($admin->present()->thumbAvatar);
         $response->assertSee($admin->name);
         $response->assertSee($admin->email);
-        $response->assertSee($admin->present()->controlButton);
+        $response->assertSeeEscaped($admin->present()->controlButton);
     }
 
     /**
