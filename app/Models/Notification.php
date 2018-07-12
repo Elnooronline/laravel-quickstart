@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Http\Resources\NorificationResource;
+use App\Http\Resources\NotificationResource;
 use Illuminate\Notifications\DatabaseNotification;
 
 class Notification extends DatabaseNotification
@@ -11,6 +11,6 @@ class Notification extends DatabaseNotification
 
     public function toArray()
     {
-        return (new NorificationResource())->toArray(request());
+        return (new NotificationResource())->toArray(request());
     }
 }

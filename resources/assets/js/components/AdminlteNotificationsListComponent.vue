@@ -1,43 +1,34 @@
 <template>
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ notifications.have_message }}</h3>
+            <h3 class="box-title" v-if="notifications.count">{{ $t('notifications.plural') }}</h3>
+            <h3 class="box-title" v-if="! notifications.count">{{ $t('notifications.empty') }}</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
             <ul class="products-list product-list-in-box">
                 <li class="item" v-for="notification in notifications.data">
-                    <div class="product-img">
-                        <a :href="notification.url">
-                            <img :src="notification.image" :alt="notification.title">
-                        </a>
-                    </div>
                     <div class="product-info">
-                        <a :href="notification.url" class="product-title">
-                            {{ notification.title }}
-                            <span class="pull-right">{{ notification.date }}</span>
+                        <a :href="notification.dashboard_url" class="product-title">
+                            {{ notification.message }}
+                            <span class="pull-right">{{ notification.formated_date }}</span>
                         </a>
-                        <span class="product-description">
-                            <a :href="notification.url">
-                                {{ notification.body }}
-                            </a>
-                        </span>
                     </div>
                 </li>
                 <!-- /.item -->
                 <li class="footer"
-                    v-if="notifications.links.prev || notifications.links.next">
+                    v-if="optional(notifications.links).prev || optional(notifications.links).next">
                     <br>
                     <nav>
                         <ul class="pager">
-                            <li v-if="notifications.links.prev">
-                                <a @click.prevent="paginate(notifications.links.prev)">
-                                    {{ notifications.previous_message }}
+                            <li v-if="optional(notifications.links).prev">
+                                <a @click.prevent="paginate(optional(notifications.links).prev)">
+                                    {{ $t('pagination.previous') }}
                                 </a>
                             </li>
-                            <li v-if="notifications.links.next">
-                                <a @click.prevent="paginate(notifications.links.next)">
-                                    {{ notifications.next_message }}
+                            <li v-if="optional(notifications.links).next">
+                                <a @click.prevent="paginate(optional(notifications.links).next)">
+                                    {{ $t('pagination.next') }}
                                 </a>
                             </li>
                         </ul>
@@ -51,10 +42,14 @@
 
 <script>
     export default {
-        props: ['translation', 'route'],
+        props: {
+          route: {
+            type: String,
+            required: true,
+          }
+        },
         data() {
             return {
-                trans: [],
                 notifications: [],
             }
         },
@@ -63,11 +58,12 @@
                 axios.get(url).then((response) => {
                     this.notifications = response.data;
                 });
-            }
+            },
+          optional: function (data) {
+            return data || {};
+          }
         },
         created() {
-            this.trans = JSON.parse(this.translation)
-
             axios.get(this.route).then((response) => {
                 this.notifications = response.data;
             });

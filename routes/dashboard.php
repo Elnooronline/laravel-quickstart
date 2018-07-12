@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('settings', 'SettingController@index')->name('settings.index');
 Route::put('settings', 'SettingController@update')->name('settings.update');
+Route::get('notifications', 'NotificationController@index')->name('notifications');
 
 Route::resource('admins', 'AdminController');
 

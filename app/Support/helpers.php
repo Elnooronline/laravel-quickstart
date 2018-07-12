@@ -31,48 +31,6 @@ if (! function_exists('filter_html')) {
     }
 }
 
-if (! function_exists('notification_target')) {
-    /**
-     * The target collection for the given notifications.
-     *
-     * @param \Illuminate\Notifications\DatabaseNotification $notification
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
-     */
-    function notification_target($notification)
-    {
-        if (auth()->guest()) {
-            return collect();
-        }
-
-        if (! auth()->user()->relationLoaded('notifications')) {
-            auth()->user()->load('notifications');
-        }
-        $targets = auth()->user()->notifications->groupBy('data.target_type');
-
-        $result = [];
-        foreach ($targets as $class => $target) {
-            $keyName = (new $class)->getKeyName();
-            $keys = $target->pluck('data.target_key');
-            $result[$class] = $class::whereIn($keyName, $keys->toArray())->get();
-        }
-
-        if ($notification instanceof \Illuminate\Notifications\DatabaseNotification) {
-            $data = $result[$notification->data['target_type']];
-        } else {
-            $notification = \Illuminate\Notifications\DatabaseNotification::find($notification);
-        }
-        if (! $notification) {
-            return;
-        }
-        $data = $result[$notification->data['target_type']];
-
-        $keyName = (new $notification->data['target_type'])->getKeyName();
-        $key = $notification->data['target_key'];
-
-        return $data->where($keyName, $key)->first();
-    }
-}
-
 if (! function_exists('localed_data')) {
     /**
      * Create a different labels to insert according to number of language supported in the system.

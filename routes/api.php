@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::middleware('auth:api')->get('notifications', 'Api\NotificationController@index')->name('api.notifications');
+Route::middleware('auth:api')
+    ->get('notifications-paginate', 'Api\NotificationController@paginate')
+    ->name('api.notifications.paginate');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

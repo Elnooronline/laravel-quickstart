@@ -3,8 +3,7 @@
 @section('content')
     @component('adminlte::page', ['title' => $title, 'breadcrumb' => 'notifications'])
         <adminlte-notifications-list
-                translation="{{ json_encode(trans('notifications')) }}"
-                route="{{ route('notifications', ['notification_type' => 'dashboard']) }}"
+                route="{{ route('api.notifications.paginate') }}"
         ></adminlte-notifications-list>
     @endcomponent
 @endsection
