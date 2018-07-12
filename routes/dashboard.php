@@ -12,6 +12,7 @@
 | ->  route('dashboard.users.show', $user)
 */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('lang/{lang}', 'SettingController@lang')->name('lang');
 
 Route::get('settings', 'SettingController@index')->name('settings.index');
 Route::put('settings', 'SettingController@update')->name('settings.update');

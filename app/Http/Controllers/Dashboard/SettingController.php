@@ -38,4 +38,16 @@ class SettingController extends Controller
 
         return back();
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function lang($localeCode)
+    {
+        session()->put('locale', $localeCode);
+
+        return back();
+    }
 }

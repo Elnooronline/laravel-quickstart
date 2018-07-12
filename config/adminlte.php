@@ -37,11 +37,9 @@ return [
          */
         'header' => [
             'items' => [
-                //'adminlte::layout.header.messages',
                 'adminlte::layout.header.notifications',
-                //'adminlte::layout.header.tasks',
+                'layouts.dashboard.navbar.languages',
                 'adminlte::layout.header.user',
-                //'adminlte::layout.header.logout',
             ],
         ],
 
