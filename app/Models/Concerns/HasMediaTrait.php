@@ -39,10 +39,14 @@ trait HasMediaTrait
     public function addOrUpdateMediaFromRequest($name, $collection = 'default')
     {
         $request = request();
+        $file = $request->file($name);
 
-        if ($request->hasFile($name)) {
+        if ($request->hasFile($name) && $file->isValid()) {
             $this->clearMediaCollection($collection);
-            $this->addMediaFromRequest($name)->withResponsiveImages()->toMediaCollection($collection);
+            $this->addMediaFromRequest($name)
+                ->usingFileName("$name.{$file->extension()}")
+                ->withResponsiveImages()
+                ->toMediaCollection($collection);
         }
     }
 
@@ -59,7 +63,8 @@ trait HasMediaTrait
         if ($request->hasFile($name)) {
             $this->clearMediaCollection();
             $this->addMultipleMediaFromRequest([$name])->each(function ($media) use ($collection) {
-                $media->toMediaCollection($collection);
+                $media->usingFileName("$name.{$file->extension()}")
+                      ->toMediaCollection($collection);
             });
         }
     }
@@ -96,10 +101,10 @@ trait HasMediaTrait
      *
      * @param $path
      * @param string $collection
+     * @return void
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
-     * @return void
      */
     public function addOrUpdateMediaFromPath($path, $collection = 'default')
     {
