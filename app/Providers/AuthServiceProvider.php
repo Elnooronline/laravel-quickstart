@@ -29,8 +29,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Passport::routes();
-
         Auth::provider('eloquent.multiple', function ($app, array $config) {
             return new EloquentMultipleUserProvider($app->make(Hasher::class), $config['model'], $config['mapping']);
         });
