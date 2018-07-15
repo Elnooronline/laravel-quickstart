@@ -23,6 +23,7 @@ return [
         'password' => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',
         'avatar' => 'الصورة',
+        'type' => 'النوع',
     ],
     'dialogs' => [
         'delete' => [
@@ -31,9 +32,5 @@ return [
             'confirm' => 'تأكيد الحذف',
             'cancel' => 'الغاء الامر',
         ],
-    ],
-    'profile' => [
-        'show' => 'الملف الشخصي',
-        'edit' => 'تعديل الملف الشخصي',
     ],
 ];

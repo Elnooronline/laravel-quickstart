@@ -23,7 +23,7 @@
         <!-- Menu Footer-->
         <li class="user-footer">
             <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">@lang('adminlte::adminlte.profile')</a>
+                <a href="#" class="btn btn-default btn-flat">@lang('auth.profile.show')</a>
             </div>
             <div class="pull-right">
                 <a href="#"
