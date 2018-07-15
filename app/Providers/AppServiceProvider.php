@@ -20,8 +20,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Admin::observe(AdminObserver::class);
         User::observe(UserObserver::class);
-
-        Carbon::setLocale($this->app->getLocale());
     }
 
     /**

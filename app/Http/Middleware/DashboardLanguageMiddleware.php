@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Carbon\Carbon;
 use App\Locales\Language;
 
 class DashboardLanguageMiddleware
@@ -21,6 +22,8 @@ class DashboardLanguageMiddleware
         }
 
         config()->set('adminlte.appearence.dir', Language::current()->getDirection());
+
+        Carbon::setLocale(Language::current()->getCode());
 
         return $next($request);
     }
