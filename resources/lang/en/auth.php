@@ -16,16 +16,16 @@ return [
     'login' => 'Sign In',
     'logout' => 'Logout',
     'enter' => 'Enter',
-    'forget-password' => 'Forgot Password ?',
+    'forget-password' => 'Forgot password ?',
     'reset' => 'Reset',
-    'back-to-login' => 'Back to Login',
+    'back-to-login' => 'Back to login',
     'since' => 'Member',
     'attributes' => [
         'name' => 'Name',
         'email' => 'E-mail',
         'password' => 'Password',
-        'password_confirmation' => 'Password Confirmation',
-        'remember' => 'Stay Signed in',
+        'password_confirmation' => 'Password confirmation',
+        'remember' => 'Stay signed in',
     ],
     'placeholders' => [
         'name' => 'Type your name',
@@ -35,6 +35,6 @@ return [
     ],
     'profile' => [
         'show' => 'Profile',
-        'edit' => 'Edit Profile',
+        'edit' => 'Edit profile',
     ],
 ];

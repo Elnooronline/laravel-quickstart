@@ -3,6 +3,6 @@
 return [
     'home' => 'Home',
     'sidebar' => [
-        'main' => 'Main Navigation',
+        'main' => 'Main navigation',
     ],
 ];

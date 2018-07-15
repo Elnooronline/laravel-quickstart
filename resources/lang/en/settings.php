@@ -7,9 +7,9 @@ return [
         'updated' => 'Settings was updated successfuly.',
     ],
     'attributes' => [
-        'name' => 'Site Name',
-        'phone' => 'Site Phone',
-        'email' => 'Site E-mail',
-        'logo' => 'Site Logo',
+        'name' => 'Site name',
+        'phone' => 'Site phone',
+        'email' => 'Site e-mail',
+        'logo' => 'Site logo',
     ],
 ];

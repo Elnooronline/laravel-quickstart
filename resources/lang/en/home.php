@@ -2,9 +2,9 @@
 
 return [
     'dashboard' => [
-        'home' => 'Home Page',
+        'home' => 'Home page',
     ],
     'web' => [
-        'home' => 'Home Page',
+        'home' => 'Home page',
     ],
 ];

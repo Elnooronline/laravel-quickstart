@@ -8,7 +8,7 @@ return [
     'actions' => [
         'list' => 'List admins',
         'show' => 'show',
-        'create' => 'New Admin',
+        'create' => 'New admin',
         'edit' => 'edit',
         'delete' => 'delete',
     ],
@@ -18,10 +18,10 @@ return [
         'deleted' => 'Admin was deleted successfuly.',
     ],
     'attributes' => [
-        'name' => 'Admin Name',
+        'name' => 'Admin name',
         'email' => 'E-mail',
         'password' => 'Password',
-        'password_confirmation' => 'Password Confirmation',
+        'password_confirmation' => 'Password confirmation',
         'avatar' => 'Image',
         'type' => 'Type',
     ],
@@ -29,7 +29,7 @@ return [
         'delete' => [
             'title' => 'You are about to delete the admin !!',
             'info' => 'You can not undo this step!',
-            'confirm' => 'Confirm Delete',
+            'confirm' => 'Confirm delete',
             'cancel' => 'Cancel',
         ],
     ],

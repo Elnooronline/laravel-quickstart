@@ -4,5 +4,5 @@ return [
     'home' => 'Home',
     'list' => 'List',
     'add' => 'Add',
-    'main_navigation' => 'Main Navigation',
+    'main_navigation' => 'Main navigation',
 ];
