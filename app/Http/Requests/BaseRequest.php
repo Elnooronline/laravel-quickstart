@@ -93,7 +93,7 @@ class BaseRequest extends FormRequest
     public function attributes()
     {
         if (is_array($attributes = trans($this->getResourceName().'.attributes'))) {
-            return array_dot($attributes);
+            return array_dot($attributes + $this->localedAttributes($this->getLocaledAttributeFromRules()));
         }
 
         return [];
@@ -178,5 +178,22 @@ class BaseRequest extends FormRequest
         }
 
         return $translatedAttributes;
+    }
+
+    /**
+     * Get the localed attribute names by the rules.
+     *
+     * @return array
+     */
+    public function getLocaledAttributeFromRules()
+    {
+        $localedAttributes = [];
+        foreach ($this->rules() as $attribute => $rule) {
+            if (str_contains($attribute, ':')) {
+                $localedAttributes[] = explode(':', $attribute)[0];
+            }
+        }
+
+        return array_unique($localedAttributes);
     }
 }
