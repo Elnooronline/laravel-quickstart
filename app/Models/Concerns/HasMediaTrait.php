@@ -101,10 +101,10 @@ trait HasMediaTrait
      *
      * @param $path
      * @param string $collection
-     * @return void
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
+     * @return void
      */
     public function addOrUpdateMediaFromPath($path, $collection = 'default')
     {

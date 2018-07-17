@@ -11,9 +11,9 @@ class NotificationController extends Controller
     /**
      * List the authenticated user notifications.
      *
-     * @return \App\Http\Resources\NotificationCollection|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @return \App\Http\Resources\NotificationCollection|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {

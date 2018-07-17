@@ -65,7 +65,7 @@ class RegisteredNotification extends Notification
         return [
             'message' => 'notifications.messages.registered', // trans('notifications.messages.registered', $localed_data = [])
             'localed_data' => [
-                'user' => $this->target->name
+                'user' => $this->target->name,
             ],
             'dashboard_route' => 'dashboard.users.show',
             'dashboard_route_data' => [$this->target->id], // route('dashboard.users.show', [$this->target->id])

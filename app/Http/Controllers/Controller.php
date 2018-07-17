@@ -82,7 +82,7 @@ class Controller extends BaseController
 
         return str_plural(snake_case(str_replace('Controller', '', $classBaseName), '-'));
     }
-    
+
     /**
      * The resource name of the controller.
      *
