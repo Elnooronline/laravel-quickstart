@@ -173,7 +173,7 @@ class BaseRequest extends FormRequest
         $translatedAttributes = trans($resource.'.attributes');
         foreach ($attributes as $attribute) {
             foreach ($supportedLanguages as $language) {
-                $translatedAttributes[$attribute.':'.$language->getCode()] = trans($resource.'.attributes.'.$attribute).' ( '.$language->getName().' )';
+                $translatedAttributes[$attribute.':'.$language->getCode()] = trans($resource.'.attributes.'.$attribute).' ( '.$language->getNativeName().' )';
             }
         }
 
