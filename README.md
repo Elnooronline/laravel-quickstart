@@ -4,7 +4,7 @@ A non-official laravel application scaffolding that includes `adminlte`, `debugb
 Mirrored from [https://github.com/laravel/laravel.git](https://github.com/laravel/laravel.git).
 
 ## Requirements
-The requirements is the same as of the [official requirements](https://laravel.com/docs/5.6/installation#server-requirements) plus the following requirements needs to be in the developer's machine.
+The requirements is the same as of the [official requirements](https://laravel.com/docs/5.6/installation#server-requirements).
 
 ## Installation
 You can also install Laravel via Composer by issuing the `create-project` command in your terminal:
