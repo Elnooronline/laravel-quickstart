@@ -98,6 +98,8 @@ class AdminController extends Controller
     {
         $admin->delete();
 
+        $this->flash('deleted');
+
         return redirect()->route('dashboard.admins.index');
     }
 }
