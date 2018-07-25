@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\ServiceRequest;
-use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Hashing\Hasher;
 use App\Auth\Providers\EloquentMultipleUserProvider;

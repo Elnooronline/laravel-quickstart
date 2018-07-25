@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Observers\UserObserver;

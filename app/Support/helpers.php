@@ -54,6 +54,7 @@ if (! function_exists('localed_data')) {
         return $localedData + $additional;
     }
 }
+
 if (! function_exists('localed_attributes')) {
     /**
      * Add Languages to the given data.
@@ -90,6 +91,7 @@ if (! function_exists('localed_attributes')) {
         return array_merge($data, $attributes);
     }
 }
+
 if (! function_exists('create')) {
     /**
      * Create a collection of models and persist them to the database.
@@ -166,6 +168,7 @@ if (! function_exists('present')) {
         return new \App\Support\Present($resource);
     }
 }
+
 if (! function_exists('random_or_create')) {
     /**
      * Get random instance for the given model class or create new.
@@ -183,23 +186,5 @@ if (! function_exists('random_or_create')) {
         }
 
         return $instance->get()->random();
-    }
-}
-
-if (! function_exists('flash')) {
-    /**
-     * Set success flash message.
-     *
-     * @param string $message
-     * @param string $level
-     * @return void
-     */
-    function flash($message, $level = 'success')
-    {
-        $messages = session($level, []);
-
-        $messages[] = $message;
-
-        session()->flash($level, $messages);
     }
 }

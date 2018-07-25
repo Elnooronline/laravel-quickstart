@@ -17,7 +17,7 @@ class ValidationServiceProvider extends ServiceProvider
     {
         // Check old password
         Validator::extend('check_hash', function ($attribute, $value, $parameters, $validator) {
-            return Hash::check($value, current($parameters));
+            return Hash::check($value, array_first($parameters));
         });
 
         Validator::extend('base64_image', function ($attribute, $value, $parameters, $validator) {
