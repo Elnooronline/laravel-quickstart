@@ -28,5 +28,5 @@ composer auto-complete:generate # Used for generating ide helper files.
 
 composer api:generate # Used for generating api documentation.
 
-composer app:clear # Used for clear application cache files.
+composer app:clear # Used for clear application cache files such as cache, config, route, view and debugbar.
 ```
