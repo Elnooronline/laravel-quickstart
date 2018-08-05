@@ -1,14 +1,15 @@
 <a
-        href="#"
-        data-form="delete-form-{{ $entity }}"
-        data-confirm-title="@lang("$resource.dialogs.delete.title")"
-        data-confirm-info="@lang("$resource.dialogs.delete.info")"
-        data-confirm-confirm="@lang("$resource.dialogs.delete.confirm")"
-        data-confirm-cancel="@lang("$resource.dialogs.delete.cancel")"
-        class="delete-confirm btn btn-danger"
+        class="form-confirm btn btn-danger"
+        data-form="delete-form-{{ $entity->getKey() }}"
+        data-type="warning"
+        data-title="@lang("$resource.dialogs.delete.title")"
+        data-text="@lang("$resource.dialogs.delete.info")"
+        data-confirm-text="@lang("$resource.dialogs.delete.confirm")"
+        data-cancel-text="@lang("$resource.dialogs.delete.cancel")"
 >
     <i class="fa fa-trash"></i>
     @lang('lists.actions.delete')
 </a>
+
 {{ BsForm::delete(route("dashboard.$resource.destroy", [$parent, $entity]), ['id' => 'delete-form-'.$entity]) }}
 {{ BsForm::close() }}
