@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
 
-        $this->command->warn("Admin Informations :");
+        $this->command->warn("Admin information :");
         $this->command->table(['name', 'email', 'password'], [
             [
                 'name' => 'ElnoorOnline',

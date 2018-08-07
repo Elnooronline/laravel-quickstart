@@ -4,7 +4,7 @@ return [
     'plural' => 'Settings',
 
     'messages' => [
-        'updated' => 'Settings was updated successfuly.',
+        'updated' => 'Settings was updated successfully.',
     ],
     'attributes' => [
         'name' => 'Site name',
