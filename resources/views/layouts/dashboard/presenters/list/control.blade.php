@@ -22,6 +22,7 @@
         @if($present['delete'])
             <li>
                 <a
+                        href="#"
                         class="form-confirm"
                         data-form="delete-form-{{ $entity->getKey() }}"
                         data-type="warning"

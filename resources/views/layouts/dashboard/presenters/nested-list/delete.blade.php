@@ -1,4 +1,5 @@
 <a
+        href="#"
         class="form-confirm btn btn-danger"
         data-form="delete-form-{{ $entity->getKey() }}"
         data-type="warning"
