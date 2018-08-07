@@ -13,9 +13,9 @@ return [
         'delete' => 'delete',
     ],
     'messages' => [
-        'created' => 'Admin was created successfuly.',
-        'updated' => 'Admin was updated successfuly.',
-        'deleted' => 'Admin was deleted successfuly.',
+        'created' => 'Admin was created successfully.',
+        'updated' => 'Admin was updated successfully.',
+        'deleted' => 'Admin was deleted successfully.',
     ],
     'attributes' => [
         'name' => 'Admin name',
