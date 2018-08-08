@@ -4,6 +4,7 @@ namespace App\Models\Abstracts;
 
 use App\Models\Concerns\Presentable;
 use App\Models\Concerns\Resourcable;
+use App\Models\Presenters\Presenter;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 abstract class Model extends Eloquent
@@ -15,5 +16,5 @@ abstract class Model extends Eloquent
      *
      * @var string
      */
-    protected $presenter = '';
+    protected $presenter = Presenter::class;
 }
