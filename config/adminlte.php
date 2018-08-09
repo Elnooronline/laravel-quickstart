@@ -5,13 +5,12 @@ return [
     /*
      * The logo of the dashboard.
      */
-    'logo' => '<b>Laravel</b> quick start',
-
+    'logo' => '<b>Laravel</b> Quickstart',
 
     /*
      * The small logo of the dashboard.
      */
-    'small_logo' => '<b>Laravel</b> quick start',
+    'small_logo' => '<b>L</b>Q',
 
     /*
      * The name of the dashboard.
