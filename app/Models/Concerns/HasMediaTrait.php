@@ -2,7 +2,6 @@
 
 namespace App\Models\Concerns;
 
-use App\Models\User;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait as HasMedia;
 
@@ -13,13 +12,13 @@ trait HasMediaTrait
     /**
      * Remove existing media items and add the new base64 fle if preset.
      *
-     * @param string $file
+     * @param string $input
      * @param string $collection
      * @return void
      */
-    public function addOrUpdateMediaFromBase64($file, $collection = 'default')
+    public function addOrUpdateMediaFromRequestBase64Data($input, $collection = 'default')
     {
-        $base64 = request($file);
+        $base64 = request($input);
 
         // Check if it's base64
         // clear all the media in this collection
@@ -173,7 +172,6 @@ trait HasMediaTrait
      */
     public function getFirstOrDefaultMediaUrl(string $collectionName = 'default', $conversionName = '')
     {
-        // TODO: refactor this method.
         $url = $this->getFirstMediaUrl($collectionName, $conversionName) ?: $this->getFirstMediaUrl($collectionName);
 
         if (empty($url)) {
@@ -184,15 +182,13 @@ trait HasMediaTrait
     }
 
     /**
+     * Get the default image placeholder.
+     *
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
     public function getImagePlaceholder()
     {
-        if ($this instanceof User) {
-            return url('images/user.png');
-        }
-
-        return 'http://via.placeholder.com/150x150';
+        return config('medialibrary.image_placeholder');
     }
 
     /**

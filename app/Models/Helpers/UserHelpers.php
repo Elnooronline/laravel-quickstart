@@ -11,6 +11,14 @@ trait UserHelpers
      */
     public function isAdmin()
     {
-        return true;
+        return $this->type == static::ADMIN_TYPE;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImagePlaceholder()
+    {
+        return url('images/user.png');
     }
 }

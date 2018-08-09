@@ -13,7 +13,7 @@ class UserPresenter extends Presenter
     {
         $user = $this->entity;
 
-        return new HtmlString(view('layouts.dashboard.presenters.users.thumb-avatar', compact('user'))->render());
+        return new HtmlString(view('layouts.dashboard.presenters.users.thumb_avatar', compact('user'))->render());
     }
 
     /**

@@ -13,7 +13,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, Resourcable, Presentable, HasMediaTrait, UserHelpers, HasApiTokens;
+    use Notifiable, Resourcable, Presentable, HasMediaTrait, UserHelpers, HasApiTokens {
+        UserHelpers::getImagePlaceholder insteadof HasMediaTrait;
+    }
 
     /**
      * The code of normal user type.
