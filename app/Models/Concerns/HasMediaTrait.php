@@ -3,6 +3,7 @@
 namespace App\Models\Concerns;
 
 use App\Models\User;
+use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait as HasMedia;
 
 trait HasMediaTrait
@@ -60,12 +61,15 @@ trait HasMediaTrait
     public function addOrUpdateMultipleMediaFromRequest($name, $collection = 'default')
     {
         $request = request();
-        if ($request->hasFile($name)) {
+
+        if ($file = $request->file($name)) {
             $this->clearMediaCollection();
-            $this->addMultipleMediaFromRequest([$name])->each(function ($media) use ($collection) {
-                $media->usingFileName("$name.{$file->extension()}")
+
+            $this->addMultipleMediaFromRequest([$name])
+                ->each(function ($media) use ($file, $name, $collection) {
+                    $media->usingFileName("$name.{$file->extension()}")
                       ->toMediaCollection($collection);
-            });
+                });
         }
     }
 
@@ -169,16 +173,53 @@ trait HasMediaTrait
      */
     public function getFirstOrDefaultMediaUrl(string $collectionName = 'default', $conversionName = '')
     {
+        // TODO: refactor this method.
         $url = $this->getFirstMediaUrl($collectionName, $conversionName) ?: $this->getFirstMediaUrl($collectionName);
 
         if (empty($url)) {
-            if ($this instanceof User) {
-                return url('images/user.png');
-            }
-
-            return 'http://via.placeholder.com/150x150';
+            return $this->getImagePlaceholder();
         }
 
         return $url;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    public function getImagePlaceholder()
+    {
+        if ($this instanceof User) {
+            return url('images/user.png');
+        }
+
+        return 'http://via.placeholder.com/150x150';
+    }
+
+    /**
+     * Register the conversions for the specified model.
+     *
+     * @param \App\Models\Concerns\Media|null $media
+     */
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+            ->width(70)
+            ->height(70)
+            ->format('png');
+
+        $this->addMediaConversion('small')
+            ->width(120)
+            ->height(120)
+            ->format('png');
+
+        $this->addMediaConversion('medium')
+            ->width(160)
+            ->height(160)
+            ->format('png');
+
+        $this->addMediaConversion('large')
+            ->width(320)
+            ->height(320)
+            ->format('png');
     }
 }
