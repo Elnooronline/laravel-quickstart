@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Models\Concerns\Presentable;
 use App\Models\Scopes\UserTypeScope;
-use App\Models\Relations\AdminRelations;
 use App\Models\Presenters\UserPresenter;
+use App\Models\Relations\AdminRelations;
 
 class Admin extends User
 {
