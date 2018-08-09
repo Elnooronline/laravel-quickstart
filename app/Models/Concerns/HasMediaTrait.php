@@ -122,17 +122,9 @@ trait HasMediaTrait
      * @param string $collection
      * @return void
      */
-    public function addMultibyteOrBase64MediaFromRequest($name, $collection = 'default')
+    public function addMultibyteMediaFromRequest($name, $collection = 'default')
     {
         $request = request();
-
-        // Handle base64 that coming from request,
-        // Like 'image_base64', upload and add to $collection.
-        foreach (request($name.'_base64', []) as $file) {
-            if (base64_decode(base64_encode($file)) === $file) {
-                $this->addMediaFromBase64($file)->withResponsiveImages()->toMediaCollection($collection);
-            }
-        }
 
         // Handle normal files that coming from request.
         if ($request->hasFile($name)) {
@@ -149,9 +141,17 @@ trait HasMediaTrait
      * @param string $collection
      * @return void
      */
-    public function addMultibyteMediaFromRequest($name, $collection = 'default')
+    public function addMultibyteOrBase64MediaFromRequest($name, $collection = 'default')
     {
         $request = request();
+
+        // Handle base64 that coming from request,
+        // Like 'image_base64', upload and add to $collection.
+        foreach (request($name.'_base64', []) as $file) {
+            if ($file && base64_decode(base64_encode($file)) === $file) {
+                $this->addMediaFromBase64($file)->withResponsiveImages()->toMediaCollection($collection);
+            }
+        }
 
         // Handle normal files that coming from request.
         if ($request->hasFile($name)) {
