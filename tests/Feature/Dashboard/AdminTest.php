@@ -14,17 +14,17 @@ class AdminTest extends TestCase
      */
     public function it_can_display_the_list_of_admins()
     {
-        $this->be($admin = create(Admin::class));
+        $this->be($admin = create(Admin::class, ['name' => "Ahmed Kh'aled"]));
 
         $response = $this->get(route('dashboard.admins.index'));
 
         $response->assertSuccessful();
 
         $response->assertViewIs('dashboard.admins.index');
-        $response->assertSeeEscaped($admin->present()->thumbAvatar);
-        $response->assertSee($admin->name);
-        $response->assertSee($admin->email);
-        $response->assertSeeEscaped($admin->present()->controlButton);
+        $response->assertSeeEscaped($admin->name);
+        $response->assertSeeEscaped($admin->email);
+        $response->assertSee($admin->present()->thumbAvatar);
+        $response->assertSee($admin->present()->controlButton);
     }
 
     /**
