@@ -43,11 +43,11 @@ class Present
         $resource = $this->resource;
         if ($parent) {
             return new HtmlString(view(
-                'layouts.dashboard.presenters.nested-list.create',
+                'layouts.dashboard.presenters.nested-resource.create',
                 compact('resource', 'parent', 'label')
             )->render());
         }
 
-        return new HtmlString(view('layouts.dashboard.presenters.list.create', compact('resource', 'label'))->render());
+        return new HtmlString(view('layouts.dashboard.presenters.resource.create', compact('resource', 'label'))->render());
     }
 }

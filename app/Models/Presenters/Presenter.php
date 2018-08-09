@@ -23,25 +23,6 @@ class Presenter extends LaracastsPresenter
     protected $displayDeleteButton = true;
 
     /**
-     * display the entity show button.
-     *
-     * @throws \Throwable
-     * @return \Illuminate\Support\HtmlString
-     */
-    public function showButton()
-    {
-        $entity = $this->entity;
-        $resource = $this->entity->getResourceName();
-
-        return new HtmlString(
-            view(
-                'layouts.dashboard.presenters.list.show',
-                compact('entity', 'resource')
-            )->render()
-        );
-    }
-
-    /**
      * display the entity edit button.
      *
      * @throws \Throwable
@@ -54,7 +35,7 @@ class Presenter extends LaracastsPresenter
 
         return new HtmlString(
             view(
-                'layouts.dashboard.presenters.list.edit',
+                'layouts.dashboard.presenters.resource.edit',
                 compact('entity', 'resource')
             )->render()
         );
@@ -72,10 +53,15 @@ class Presenter extends LaracastsPresenter
         $resource = $this->entity->getResourceName();
 
         return new HtmlString(
-            view('layouts.dashboard.presenters.list.delete', compact('entity', 'resource'))->render()
+            view('layouts.dashboard.presenters.resource.delete', compact('entity', 'resource'))->render()
         );
     }
 
+    /**
+     * Display show, edit and delete buttons.
+     *
+     * @return \Illuminate\Support\HtmlString
+     */
     public function controlButton()
     {
         $entity = $this->entity;
@@ -88,7 +74,7 @@ class Presenter extends LaracastsPresenter
         ];
 
         return new HtmlString(view(
-            'layouts.dashboard.presenters.list.control',
+            'layouts.dashboard.presenters.resource.control',
             compact('entity', 'resource', 'present')
         )->render());
     }

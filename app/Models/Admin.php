@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Concerns\Presentable;
 use App\Models\Scopes\UserTypeScope;
 use App\Models\Relations\AdminRelations;
-use App\Models\Presenters\AdminPresenter;
+use App\Models\Presenters\UserPresenter;
 
 class Admin extends User
 {
@@ -34,7 +34,7 @@ class Admin extends User
      *
      * @var string
      */
-    protected $presenter = AdminPresenter::class;
+    protected $presenter = UserPresenter::class;
 
     /**
      * The "booting" method of the model.
