@@ -14,6 +14,6 @@ class UserObserver
      */
     public function creating(User $user)
     {
-        $user->type = User::USER_TYPE;
+        //
     }
 }
