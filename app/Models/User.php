@@ -7,6 +7,7 @@ use App\Models\Helpers\UserHelpers;
 use App\Models\Concerns\Presentable;
 use App\Models\Concerns\Resourcable;
 use App\Models\Concerns\HasMediaTrait;
+use App\Models\Presenters\UserPresenter;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,6 +29,13 @@ class User extends Authenticatable implements HasMedia
     const ADMIN_TYPE = 1;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -47,4 +55,11 @@ class User extends Authenticatable implements HasMedia
         'password',
         'remember_token',
     ];
+
+    /**
+     * The presenter class name.
+     *
+     * @var string
+     */
+    protected $presenter = UserPresenter::class;
 }

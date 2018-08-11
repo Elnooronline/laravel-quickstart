@@ -2,21 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Concerns\Presentable;
 use App\Models\Scopes\UserTypeScope;
-use App\Models\Presenters\UserPresenter;
 use App\Models\Relations\AdminRelations;
 
 class Admin extends User
 {
-    use AdminRelations, Presentable;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+    use AdminRelations;
 
     /**
      * The attributes that are mass assignable.
@@ -28,13 +19,6 @@ class Admin extends User
         'email',
         'password',
     ];
-
-    /**
-     * The presenter class name.
-     *
-     * @var string
-     */
-    protected $presenter = UserPresenter::class;
 
     /**
      * The "booting" method of the model.
