@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(\App\Models\Admin::class)->create($data = [
-            'name' => 'ElnoorOnline',
+            'name' => 'Elnooronline',
             'email' => 'admin@elnooronline.com',
         ]);
 
