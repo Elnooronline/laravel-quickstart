@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@elnooronline.com',
         ]);
 
-        $this->command->warn("Admin information :");
+        $this->command->info("Admin information :");
         $this->command->table(['name', 'email', 'password'], [
             $data + [
                 'password' => 'secret',
