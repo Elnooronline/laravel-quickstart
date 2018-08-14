@@ -6,27 +6,18 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Str;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Send a flash message and Redirect to index.
+     * The resource name of the controller.
      *
-     * @param  string $event
-     * @param  string $level
-     * @param  string $resource
-     * @param  string $lang
-     *
-     * @return \Illuminate\Http\RedirectResponse
+     * @var null
      */
-    public function redirectToIndexWithFlash($event = 'created', $level = 'success', $resource = null, $lang = null)
-    {
-        $this->flash($event, $level, $lang);
-
-        return $this->redirectToIndex($resource);
-    }
+    protected $resourceName = null;
 
     /**
      * Send a flash message.
@@ -34,8 +25,7 @@ class Controller extends BaseController
      * @param  string $event
      * @param  string $level
      * @param  string $lang
-     *
-     * @return \Laracasts\Flash\FlashNotifier
+     * @return \App\Http\Controllers\Controller
      */
     public function flash($event = 'created', $level = 'success', $lang = null)
     {
@@ -43,44 +33,9 @@ class Controller extends BaseController
             $lang = $this->getResourceName();
         }
 
-        return flash(trans($lang.'.messages.'.$event), $level);
-    }
+        flash(trans($lang.'.messages.'.$event), $level);
 
-    /**
-     * Redirect to index.
-     *
-     * @param null $resource
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function redirectToIndex($resource = null)
-    {
-        if (! $resource) {
-            $resource = $this->guessResourceName();
-        }
-
-        return redirect()->route("dashboard.$resource.index");
-    }
-
-    public function redirectToBack($resource = null)
-    {
-        if (! $resource) {
-            $resource = $this->guessResourceName();
-        }
-
-        return redirect()->route("create");
-    }
-
-    /**
-     * Guess the resource name of the controller.
-     *
-     * @return string
-     */
-    protected function guessResourceName()
-    {
-        $classBaseName = class_basename(get_class($this));
-
-        return str_plural(snake_case(str_replace('Controller', '', $classBaseName), '-'));
+        return $this;
     }
 
     /**
@@ -90,12 +45,10 @@ class Controller extends BaseController
      */
     protected function getResourceName()
     {
-        if (property_exists($this, 'resourceName')) {
-            return $this->resourceName;
+        if (! $this->resourceName) {
+            return Str::plural(Str::snake(Str::replaceLast('Controller', '', class_basename($this))));
         }
 
-        $classBaseName = class_basename(get_class($this));
-
-        return str_plural(snake_case(str_replace('Controller', '', $classBaseName)));
+        return $this->resourceName;
     }
 }
