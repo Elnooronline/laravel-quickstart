@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         flash(trans('dashboard.messages.welcome', [
-            'user' => $request->user()->name
+            'user' => $request->user()->name,
         ]))->important();
 
         return view('dashboard.home');
