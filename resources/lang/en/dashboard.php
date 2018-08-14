@@ -5,4 +5,7 @@ return [
     'sidebar' => [
         'main' => 'Main navigation',
     ],
+    'messages' => [
+        'welcome' => 'Welcome, :user!',
+    ],
 ];
