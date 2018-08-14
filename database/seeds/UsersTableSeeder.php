@@ -11,9 +11,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Admin::class)->create([
+        factory(\App\Models\Admin::class)->create($data = [
             'name' => 'ElnoorOnline',
             'email' => 'admin@elnooronline.com',
+        ]);
+
+        $this->command->warn("Admin information :");
+        $this->command->table(['name', 'email', 'password'], [
+            $data + [
+                'password' => 'secret',
+            ],
         ]);
 
         factory(\App\Models\Admin::class, 2)->create();
