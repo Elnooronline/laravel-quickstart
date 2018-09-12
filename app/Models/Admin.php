@@ -26,4 +26,16 @@ class Admin extends User
         'email',
         'password',
     ];
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new UserTypeScope(static::ADMIN_TYPE));
+    }
 }
