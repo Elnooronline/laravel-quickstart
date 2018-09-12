@@ -38,7 +38,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\NotificationClearMiddleware::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
         ],
-
         'api' => [
             'throttle:60,1',
             'bindings',
