@@ -11,10 +11,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Admin::class)->create($data = [
+        $admin = factory(\App\Models\Admin::class)->create($data = [
             'name' => 'Elnooronline',
             'email' => 'admin@elnooronline.com',
         ]);
+        $admin->addOrUpdateMediaFromUrl('https://pbs.twimg.com/profile_images/961740126970839046/QMGUazth_400x400.jpg');
 
         $this->command->info("Admin information :");
         $this->command->table(['name', 'email', 'password'], [
