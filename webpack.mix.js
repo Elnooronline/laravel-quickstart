@@ -10,11 +10,11 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.copyDirectory('resources/assets/images', 'public/images');
-mix.js('resources/assets/js/app.js', 'public/js')
-    .js('resources/assets/js/dashboard.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .sass('resources/assets/sass/dashboard.scss', 'public/css')
+mix.copyDirectory('resources/images', 'public/images');
+mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/dashboard.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/dashboard.scss', 'public/css')
     .options({
         processCssUrls: true,
         imgLoaderOptions: {
