@@ -66,8 +66,7 @@ trait HasMediaTrait
 
             $this->addMultipleMediaFromRequest([$name])
                 ->each(function ($media) use ($file, $name, $collection) {
-                    $media->usingFileName("$name.{$file->extension()}")
-                      ->toMediaCollection($collection);
+                    $media->toMediaCollection($collection);
                 });
         }
     }
