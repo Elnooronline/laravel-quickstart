@@ -1,4 +1,5 @@
 Laravel Quick Start Releases Notes
+
 ###v2.3.1
 * Fix issue in `app/Models/Concerns/HasMediaTrait.php` ([7f84b8](https://github.com/Elnooronline/laravel-quickstart/commit/7f84b806f929ec31d4c4432edba11e5345824c43))
 ###v2.3.0
