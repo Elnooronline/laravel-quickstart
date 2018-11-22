@@ -1,7 +1,7 @@
 <a
         href="#"
         class="form-confirm btn btn-danger"
-        data-form="delete-form-{{ $entity->getKey() }}"
+        data-form="delete-form-{{ $resource }}-{{ $entity->getKey() }}"
         data-type="warning"
         data-title="@lang("$resource.dialogs.delete.title")"
         data-text="@lang("$resource.dialogs.delete.info")"
@@ -12,5 +12,5 @@
     @lang('lists.actions.delete')
 </a>
 
-{{ BsForm::delete(route("dashboard.$resource.destroy", $entity), ['id' => 'delete-form-'.$entity->getKey()]) }}
+{{ BsForm::delete(route("dashboard.$resource.destroy", $entity), ['id' => 'delete-form-'.$resource.'-'.$entity->getKey()]) }}
 {{ BsForm::close() }}
